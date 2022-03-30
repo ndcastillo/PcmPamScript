@@ -1,2 +1,2 @@
 # pcmpamScript
- PCM-PAM Script Plotter
+ This is a PCM-PAM Script Plotter
