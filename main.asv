@@ -65,7 +65,7 @@ F = F*rangoDinamico;
 
 % Senal Cuadrada
 squareSignal = zeros(1,n);
-squareSignal(1:1)=1;
+squareSignal(1:n/2)=1;
 squareSignal = repmat(squareSignal,1,numMuestras);
 F(end)=[];
 t(end)=[];
@@ -74,12 +74,12 @@ t(end)=[];
 Fsample = F.*squareSignal;
 
 % PAM
-PAM = [];
+PAM = []
 k=1;
 t_pam = 0:ts/n:(d*n-ts/n);
 for i=1:1:length(Fsample)
     for j=1:1:n    
-        PAM(k)= Fsample(i);
+        PAM(k)= Fsample(i)
         k=k+1;
     end
 end
@@ -124,10 +124,13 @@ R_b= n*frecuenciaNyquist;
 Tb_pcm=1/R_b;
 B_pcm= 1/(2*Tb_pcm);
 
+vector
 pcm =reshape(vector,n,[]);
 pcm_r = pcm(1,:);
-pcm_r=dec2bin(pcm_r);
+pcm_r=dec2bin(pcm_r)
 
+
+pcm_r
 trama=[];
 k=1;
 
@@ -142,7 +145,7 @@ for i=1:1:length(pcm_r)
  end
 
 tb=0:Tb_pcm/numSamplePoints:Tb_pcm*n*numMuestras;
-tb(end)=[];
+tb(end)=[]
  
 % Graphics
 
