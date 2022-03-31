@@ -2,7 +2,7 @@
 
 ![Pulse-Code-Modulation-1.png](https://live.staticflickr.com/65535/51974173526_ddd90b71e5_c.jpg)
 
-By Voice Signal to 4kHz.
+With a Voice Signal to 4kHz.
 
 ### PAM Signal
 
