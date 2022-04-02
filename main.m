@@ -8,24 +8,29 @@ clc
 
 % Construction of the Signal
 % Create parameters to overlap of sinusoidal
-% Signal_1
-A=1;                    % Amplitud de la señal de informacion
-fm=4e3;                 % Frequencia de la señal de informacion
-wm=2*pi*fm;             % Frecuencia de la señal de informacion en radianes
-tm=1/fm;                % Periodo de la señal de informacion
+% Voice Signal 4kHz
 
-factor=50;                        % Factor de muestreo
-frecuenciaNyquist=2*fm;           % Tasa de Nyquist
-fs=factor*frecuenciaNyquist;      % Frecuencia de muestreo
-ts=1/fs;                          % Periodo de muestreo
+%% Signal Construction
 
-rangoDinamico=5;                  % Rango de variacion de la señal de informacion
+A = 1;                    % Amplitude Signal
+fm = 4e3;                 % Frequency Signal
+wm = 2*pi*fm;             % Frecquency in rad/s
+tm = 1/fm;                % Time Period
+
+factor = 50;                        % Sample Factor
+frecuenciaNyquist = 2*fm;           % Nyquist Rate
+fs = factor*frecuenciaNyquist;      % Sample Frequency
+ts = 1/fs;                          % Sample Period
+
+
+rangoDinamico=5;                  % Dynamic Range
 snrQuatizationdB = 35;
 snrQuatization = 10^(snrQuatizationdB/10);
 
 % Para obtener el numero de niveles en una cuantizacion uniforme
-%L = sqrt(snrQuatization/3);
-L=8;
+% L = sqrt(snrQuatization/3);
+L=8; % Niveles
+
 if L==0 || L < 0
     disp('Fuera del Rango Establecido')
 elseif L > 0 && L<=1
@@ -144,12 +149,11 @@ for i=1:1:length(pcm_r)
 tb=0:Tb_pcm/numSamplePoints:Tb_pcm*n*numMuestras;
 tb(end)=[];
  
-% Graphics
-
+%% Graphics
 
 %PAM signal
-figure('Name','PAM SIGNAL')
-plot(t, F, t_pam, PAM,'LineWidth',1.5)
+figurePAM = figure('Name','PAM SIGNAL')
+plotPAM = plot(t, F, t_pam, PAM,'LineWidth',1.5)
     xlabel('t[s]')
     ylabel('Voltage[V]')
     title('PAM SIGNAL')
@@ -185,16 +189,19 @@ plot(t,F,t,quatizedSignal, 'LineWidth',1.5)
     grid on;
 
 % Digital Data
-f1=figure('Name','PCM Signal - Digital Data');
-plot(tb,trama, 'LineWidth',1.5);
-    axis([0 tb(1000) -2 2])
+figureDigital = figure('Name','PCM Signal - Digital Data');
+plotDigital = plot(tb,trama);
+    plotDigital.LineWidth = 1.5;
+    plotDigital.Color='#0D00EB';
+    axis([0 tb(1000) -2 2]);
+    title('PCM Signal - Digital Data');
+    ylabel('Bit Value');
+    xlabel('t[s]');
     grid on;
     grid minor;
-    title('PCM Signal - Digital Data')
-    ylabel('Bit Value')
-    xlabel('t[s]')
 
-% % Digital Data Animation
+%% Digital Data Animation
+%close all
 % f1=figure('Name','Digital Data');
 % for i=1:1:length(tb)
 %     plot(tb(1:i),trama(1:i), 'LineWidth',1.5);
