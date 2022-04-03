@@ -24,7 +24,7 @@ fm = [4e3 3.3e3 2.4e3 1.5e3];         % Frequency Signal
 wm = 2*pi*fm;                   % Frecquency in rad/s
 tm = 1./fm;                     % Time Period
 
-factor = 75;                    % Sample Factor
+factor = 50;                    % Sample Factor
 frecuenciaNyquist = 2*fm;       % Nyquist Rate
 fs = factor*frecuenciaNyquist;  % Sample Frequency
 ts = 1./fs;                     % Sample Period
