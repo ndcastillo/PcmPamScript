@@ -1,6 +1,7 @@
 # Digital System Communication
 
 <img src="https://media2.giphy.com/media/LCgkZUrb08Ezq9JN1w/giphy.gif" title="" alt="" data-align="center">
+Encoding Signal
 <img src="https://media4.giphy.com/media/LrqE7XxRR9dPqNoMPh/giphy.gif" title="" alt="" data-align="center">
 
 Exersise:
