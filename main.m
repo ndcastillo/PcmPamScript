@@ -24,7 +24,7 @@ fm = [4e3 3.3e3 2.4e3 1.5e3];         % Frequency Signal
 wm = 2*pi*fm;                   % Frecquency in rad/s
 tm = 1./fm;                     % Time Period
 
-factor = 100;                    % Sample Factor
+factor = 75;                    % Sample Factor
 frecuenciaNyquist = 2*fm;       % Nyquist Rate
 fs = factor*frecuenciaNyquist;  % Sample Frequency
 ts = 1./fs;                     % Sample Period
@@ -141,7 +141,7 @@ PAM = [];
 k=1;
 t_pam1 = 0:ts/numPeriodos:(d*numPeriodos-ts/numPeriodos);
 t_pam = 0:Tb_pam/(numPeriodos-1):numPeriodos*length(Fsample)*(Tb_pam/(numPeriodos-1));
-t_pam(end)=[]
+t_pam(end)=[];
 
 for i=1:1:length(Fsample)
     for j=1:1:numPeriodos    
@@ -244,7 +244,7 @@ plotDigital = plot(tb,trama);
     grid minor;
     
 % BW_pcm
-Y=fft(trama)
+Y=fft(trama);
 P2 = abs(Y/length(trama));
 P1 = P2(1:(length(trama))/2+1);
 P1(2:end-1) = 2*P1(2:end-1);
@@ -270,14 +270,14 @@ plotPAM = plot(t_pam, PAM,'LineWidth',1.5);
     title('PAM SIGNAL')
 
 % BW_pcm
-Y_pam=fft(PAM)
+Y_pam=fft(PAM);
 P2_pam = abs(Y_pam/length(PAM));
 P1_pam = P2_pam(1:(length(PAM))/2+1);
 P1_pam(2:end-1) = 2*P1_pam(2:end-1);
 f_pam = B_pam*numPeriodos*(0:(length(PAM)/2))/length(PAM);
 
-figurePamFrequency = figure('Name', 'PAM Signal - Frequency Domain')
-plotPamFrequency = plot(f_pam, P1_pam)
+figurePamFrequency = figure('Name', 'PAM Signal - Frequency Domain');
+plotPamFrequency = plot(f_pam, P1_pam);
 axis([0 12e3 0 0.5]);
     title('PAM Signal - Frequency Domain');
     ylabel('Voltage [V]');
